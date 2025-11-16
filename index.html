@@ -1,186 +1,1067 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <title>RV · Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Robert Vualnam — Customer Experience Specialist</title>
-  <meta name="description" content="Portfolio of Robert Vualnam — Customer Experience Specialist focused on remote support, Salesforce solutions, and AI workflow automation." />
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="description" content="Portfolio of Robert Vualnam — Customer Experience Specialist, Salesforce Admin Trainee, and AI Workflow Enthusiast." />
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-soft: #0b1020;
+      --bg-softer: #111729;
+      --card: rgba(15, 23, 42, 0.95);
+      --card-soft: rgba(15, 23, 42, 0.8);
+      --border-subtle: rgba(148, 163, 184, 0.25);
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.15);
+      --accent-strong: #0ea5e9;
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --text-soft: #6b7280;
+      --radius-xl: 24px;
+      --shadow-soft: 0 24px 60px rgba(15, 23, 42, 0.7);
+      --shadow-subtle: 0 10px 30px rgba(15, 23, 42, 0.7);
+      --content-max: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #1f2937 0, #020617 45%, #000000 100%);
+      color: var(--text-main);
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .site-shell {
+      max-width: var(--content-max);
+      margin: 0 auto;
+      padding: 16px 16px 64px;
+    }
+
+    /* Top nav */
+    .top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      padding: 8px 0 16px;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to bottom, rgba(15, 23, 42, 0.9) 0, rgba(15, 23, 42, 0.5) 60%, transparent 100%);
+    }
+
+    .top-nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid var(--border-subtle);
+      padding: 8px 12px;
+      box-shadow: 0 12px 35px rgba(15, 23, 42, 0.8);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.35), rgba(15, 23, 42, 0.95));
+      border: 1px solid rgba(56, 189, 248, 0.4);
+    }
+
+    .brand-avatar {
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      background: conic-gradient(from 160deg, #0ea5e9, #f97316, #22c55e, #0ea5e9);
+      padding: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .brand-avatar-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+      background: #020617;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.8rem;
+      color: var(--accent);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .brand-title {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .brand-subtitle {
+      font-size: 0.7rem;
+      color: var(--text-soft);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.78rem;
+    }
+
+    .nav-links a {
+      padding: 6px 10px;
+      border-radius: 999px;
+      color: var(--text-muted);
+      border: 1px solid transparent;
+      transition: all 0.18s ease-out;
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover {
+      color: var(--text-main);
+      background: rgba(30, 64, 175, 0.4);
+      border-color: rgba(96, 165, 250, 0.4);
+    }
+
+    .nav-links a.primary-link {
+      background: linear-gradient(120deg, #0ea5e9, #22c55e);
+      color: #0b1120;
+      font-weight: 600;
+      border-color: transparent;
+      box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.8), 0 10px 30px rgba(34, 211, 238, 0.5);
+    }
+
+    .nav-links a.primary-link:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 40px rgba(34, 211, 238, 0.7);
+    }
+
+    @media (max-width: 720px) {
+      .top-nav-inner {
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .nav-links {
+        width: 100%;
+        justify-content: space-between;
+      }
+      .nav-links a.primary-link {
+        flex: 1;
+        text-align: center;
+      }
+    }
+
+    /* Layout under nav */
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 5fr);
+      gap: 24px;
+      margin-top: 24px;
+    }
+
+    @media (max-width: 960px) {
+      .layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    /* Profile card */
+    .profile-card {
+      position: sticky;
+      top: 92px;
+      align-self: start;
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.98), rgba(17, 24, 39, 0.98));
+      border-radius: calc(var(--radius-xl) + 4px);
+      padding: 20px 20px 22px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+    }
+
+    .profile-card-header {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .profile-photo-frame {
+      width: 78px;
+      height: 78px;
+      border-radius: 28px;
+      padding: 3px;
+      background: conic-gradient(from 220deg, rgba(56, 189, 248, 0.9), rgba(249, 115, 22, 0.9), rgba(34, 197, 94, 0.9), rgba(56, 189, 248, 0.9));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .profile-photo {
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+      background: radial-gradient(circle at 30% 0, rgba(148, 163, 184, 0.35), #020617);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      font-size: 2.1rem;
+      font-weight: 600;
+    }
+
+    .profile-main {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .profile-name {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    .profile-username {
+      font-size: 0.8rem;
+      color: var(--text-soft);
+    }
+
+    .profile-title {
+      margin-top: 4px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .profile-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 9px;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: var(--text-soft);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .chip-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 5px var(--accent-soft);
+    }
+
+    .chip-tag {
+      background: rgba(59, 130, 246, 0.15);
+      border-color: rgba(96, 165, 250, 0.6);
+      color: #bfdbfe;
+    }
+
+    .chip-open {
+      background: var(--accent-soft);
+      border-color: rgba(56, 189, 248, 0.9);
+      color: #e0f2fe;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .profile-about {
+      margin-top: 16px;
+      font-size: 0.86rem;
+      line-height: 1.6;
+      color: var(--text-muted);
+    }
+
+    .profile-stats {
+      margin-top: 16px;
+      padding-top: 12px;
+      border-top: 1px dashed rgba(55, 65, 81, 0.7);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .stat-pill {
+      padding: 7px 10px;
+      border-radius: 14px;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      font-size: 0.75rem;
+      color: var(--text-soft);
+      display: inline-flex;
+      flex-direction: column;
+      gap: 2px;
+      min-width: 112px;
+    }
+
+    .stat-label {
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .stat-value {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .profile-actions {
+      margin-top: 18px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      border: 1px solid transparent;
+      cursor: pointer;
+      background: none;
+      color: inherit;
+      text-decoration: none;
+      transition: all 0.18s ease-out;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(120deg, #0ea5e9, #22c55e);
+      color: #0b1120;
+      font-weight: 600;
+      box-shadow: 0 16px 35px rgba(8, 47, 73, 0.9);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 20px 48px rgba(8, 47, 73, 1);
+    }
+
+    .btn-ghost {
+      border-color: var(--border-subtle);
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--text-muted);
+    }
+
+    .btn-ghost:hover {
+      border-color: rgba(148, 163, 184, 0.6);
+      background: rgba(30, 64, 175, 0.35);
+      color: var(--text-main);
+    }
+
+    .profile-footer {
+      margin-top: 18px;
+      padding-top: 10px;
+      border-top: 1px dashed rgba(55, 65, 81, 0.7);
+      font-size: 0.75rem;
+      color: var(--text-soft);
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .profile-footer-right a {
+      font-weight: 500;
+      color: #a5b4fc;
+    }
+
+    @media (max-width: 960px) {
+      .profile-card {
+        position: static;
+        order: -1;
+      }
+    }
+
+    /* Right column content */
+    .content-column {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .section {
+      background: var(--card);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border-subtle);
+      padding: 18px 18px 20px;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-soft);
+    }
+
+    .section-pill {
+      font-size: 0.7rem;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: rgba(30, 64, 175, 0.5);
+      color: #c7d2fe;
+      border: 1px solid rgba(129, 140, 248, 0.6);
+    }
+
+    .section-body {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .section-body p {
+      margin: 0.2rem 0 0.6rem;
+    }
+
+    .section-list {
+      padding-left: 1rem;
+      margin: 0.1rem 0 0.4rem;
+    }
+
+    .section-list li {
+      margin-bottom: 0.2rem;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .tag {
+      font-size: 0.75rem;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      color: var(--text-soft);
+    }
+
+    /* Experience list */
+    .experience-item {
+      margin-bottom: 12px;
+      padding: 10px;
+      border-radius: 16px;
+      background: var(--bg-soft);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+    }
+
+    .experience-item-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      font-size: 0.86rem;
+    }
+
+    .experience-role {
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .experience-meta {
+      font-size: 0.75rem;
+      color: var(--text-soft);
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .experience-company {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .experience-bullets {
+      margin-top: 4px;
+      padding-left: 1rem;
+      font-size: 0.82rem;
+    }
+
+    .experience-bullets li {
+      margin-bottom: 2px;
+    }
+
+    /* Projects grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 12px;
+    }
+
+    .project-card {
+      background: var(--bg-soft);
+      border-radius: 18px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      padding: 10px 10px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, border-color 0.2s ease-out;
+    }
+
+    .project-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.8);
+      border-color: rgba(148, 163, 184, 0.9);
+      background: var(--card-soft);
+    }
+
+    .project-badge {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-soft);
+    }
+
+    .project-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .project-desc {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+      font-size: 0.75rem;
+    }
+
+    .project-tag {
+      padding: 3px 7px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      color: var(--text-soft);
+    }
+
+    .project-links {
+      margin-top: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 0.8rem;
+    }
+
+    .project-link {
+      color: #bfdbfe;
+      text-decoration: underline;
+      text-decoration-color: rgba(129, 140, 248, 0.7);
+    }
+
+    /* Salesforce section */
+    .sf-schema {
+      font-family: "JetBrains Mono", "SF Mono", Menlo, Monaco, Consolas, monospace;
+      font-size: 0.76rem;
+      background: #020617;
+      border-radius: 14px;
+      padding: 10px 12px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      margin-top: 6px;
+      white-space: pre-wrap;
+      color: #e5e7eb;
+    }
+
+    .sf-media-grid {
+      margin-top: 14px;
+      display: grid;
+      grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.4fr);
+      gap: 12px;
+    }
+
+    .sf-media-main,
+    .sf-media-side-card {
+      background: var(--bg-soft);
+      border-radius: 16px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .sf-thumb {
+      border-radius: 12px;
+      overflow: hidden;
+      aspect-ratio: 16 / 9;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .sf-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .sf-caption {
+      font-size: 0.78rem;
+      color: var(--text-soft);
+    }
+
+    .sf-media-side-inner {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+
+    @media (max-width: 860px) {
+      .sf-media-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    /* Contact section */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 12px;
+      align-items: center;
+    }
+
+    .contact-details {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    .contact-details p {
+      margin: 0.2rem 0;
+    }
+
+    .contact-details strong {
+      color: var(--text-main);
+    }
+
+    .contact-cta {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      align-items: flex-start;
+      font-size: 0.8rem;
+    }
+
+    .contact-cta small {
+      color: var(--text-soft);
+    }
+
+    @media (max-width: 720px) {
+      .section {
+        padding: 16px 14px 18px;
+      }
+      .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    /* Footer */
+    .site-footer {
+      margin-top: 18px;
+      font-size: 0.75rem;
+      color: var(--text-soft);
+      text-align: center;
+    }
+
+    .site-footer span {
+      opacity: 0.9;
+    }
+
+    .site-footer a {
+      color: #a5b4fc;
+      font-weight: 500;
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        scroll-behavior: auto !important;
+        transition-duration: 0.001ms !important;
+      }
+      .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
+  </style>
 </head>
-<body class="bg-white text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100">
-  <!-- HEADER -->
-  <header class="sticky top-0 z-50 backdrop-blur bg-white/70 dark:bg-zinc-950/70 border-b border-zinc-200 dark:border-zinc-800">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-      <a href="#home" class="font-semibold text-lg">RV<span class="text-sky-400">·</span>Portfolio</a>
-      <nav class="hidden md:flex gap-6 text-sm">
-        <a class="link-uline" href="#about">About</a>
-        <a class="link-uline" href="#experience">Experience</a>
-        <a class="link-uline" href="#skills">Skills</a>
-        <a class="link-uline" href="#projects">Projects</a>
-        <a class="link-uline" href="#salesforce">Salesforce</a>
-        <a class="link-uline" href="#contact">Contact</a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- HERO -->
-  <section id="home" class="py-20 bg-zinc-50 dark:bg-zinc-900/40">
-    <div class="max-w-6xl mx-auto px-4 text-center">
-      <div class="flex justify-center mb-6">
-        <img alt="Robert Vualnam profile" src="./Poerfolio Image.png" class="w-32 h-32 rounded-full object-cover border-4 border-zinc-200 dark:border-zinc-700 shadow-md" />
-      </div>
-      <h1 class="text-3xl md:text-5xl font-bold">Robert Vualnam</h1>
-      <p class="mt-3 text-zinc-600 dark:text-zinc-300 text-lg">Customer Experience Specialist · Salesforce Admin Trainee · AI Workflow Enthusiast</p>
-      <div class="mt-6 flex flex-wrap justify-center gap-3">
-        <a href="./Resume_13Oct2025_Color.pdf" download class="px-5 py-3 rounded-2xl bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 font-medium">Download Résumé (PDF)</a>
-        <a href="#contact" class="px-5 py-3 rounded-2xl border border-zinc-300 dark:border-zinc-700">Contact Me</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about" class="py-16 md:py-24">
-    <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
-      <div>
-        <h2 class="text-2xl md:text-3xl font-bold">About Me</h2>
-        <p class="mt-4 text-zinc-600 dark:text-zinc-300">I’m a Customer Service Professional with 5+ years of experience in remote support for global clients. I specialize in escalations, issue resolution, and workflow optimization using tools like Slack, Zoom, and CRM systems. I enjoy building simple automations that improve customer satisfaction and reduce resolution times.</p>
-        <ul class="mt-6 grid sm:grid-cols-2 gap-2 text-sm">
-          <li class="p-3 rounded-xl border border-zinc-200 dark:border-zinc-800">Based in Bangalore, India</li>
-          <li class="p-3 rounded-xl border border-zinc-200 dark:border-zinc-800">IELTS 8.0 (Advanced English)</li>
-          <li class="p-3 rounded-xl border border-zinc-200 dark:border-zinc-800">GDPR & compliance aware</li>
-          <li class="p-3 rounded-xl border border-zinc-200 dark:border-zinc-800">Open to remote roles</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- EXPERIENCE -->
-  <section id="experience" class="py-16 md:py-24 bg-zinc-50 dark:bg-zinc-900/40">
-    <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-2xl md:text-3xl font-bold">Experience</h2>
-      <ol class="mt-8 relative border-s border-zinc-200 dark:border-zinc-800">
-        <li class="ms-6 pb-10">
-          <span class="absolute -start-3 mt-1 w-6 h-6 rounded-full bg-sky-400"></span>
-          <h3 class="font-semibold">OJCommerce — Remote Customer Support Specialist <span class="text-sm text-zinc-500">(Jun 2021 – Oct 2021)</span></h3>
-          <ul class="list-disc ms-5 mt-2 text-zinc-600 dark:text-zinc-300 text-sm">
-            <li>Resolved 90% of inquiries within 24 hours for 50+ U.S. clients.</li>
-            <li>Improved customer retention by 20% through proactive outreach.</li>
-          </ul>
-        </li>
-        <li class="ms-6 pb-10">
-          <span class="absolute -start-3 mt-1 w-6 h-6 rounded-full bg-violet-400"></span>
-          <h3 class="font-semibold">Aegis — Customer Escalation Manager <span class="text-sm text-zinc-500">(Mar 2017 – Oct 2019)</span></h3>
-          <ul class="list-disc ms-5 mt-2 text-zinc-600 dark:text-zinc-300 text-sm">
-            <li>Managed 200+ monthly escalations, 98% within SLA.</li>
-            <li>Coordinated with FCC & BBB to reduce churn by 15%.</li>
-          </ul>
-        </li>
-        <li class="ms-6 pb-2">
-          <span class="absolute -start-3 mt-1 w-6 h-6 rounded-full bg-pink-400"></span>
-          <h3 class="font-semibold">Convergys — Billing & Payment Specialist <span class="text-sm text-zinc-500">(Nov 2012 – Jan 2014)</span></h3>
-          <ul class="list-disc ms-5 mt-2 text-zinc-600 dark:text-zinc-300 text-sm">
-            <li>Supported 40+ car insurance accounts; boosted CSAT to 80%.</li>
-            <li>Automated Excel workflows to cut resolution time by 30%.</li>
-          </ul>
-        </li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- SKILLS -->
-  <section id="skills" class="py-16 md:py-24">
-    <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-2xl md:text-3xl font-bold">Skills</h2>
-      <div class="mt-6 grid sm:grid-cols-2 md:grid-cols-3 gap-3 text-sm">
-        <div class="p-4 rounded-2xl border border-zinc-200 dark:border-zinc-800">Customer Experience Management</div>
-        <div class="p-4 rounded-2xl border border-zinc-200 dark:border-zinc-800">Conflict Resolution</div>
-        <div class="p-4 rounded-2xl border border-zinc-200 dark:border-zinc-800">CRM (Zendesk, Salesforce)</div>
-        <div class="p-4 rounded-2xl border border-zinc-200 dark:border-zinc-800">Remote Collaboration (Slack, Zoom)</div>
-        <div class="p-4 rounded-2xl border border-zinc-200 dark:border-zinc-800">Data‑Driven Problem Solving</div>
-        <div class="p-4 rounded-2xl border border-zinc-200 dark:border-zinc-800">GDPR & Compliance</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section id="projects" class="py-16 md:py-24 bg-zinc-50 dark:bg-zinc-900/40">
-    <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-2xl md:text-3xl font-bold">Projects</h2>
-      <p class="mt-2 text-zinc-600 dark:text-zinc-300">Highlighted works and conceptual explorations.</p>
-      <div class="mt-8 grid md:grid-cols-3 gap-6">
-        <article class="rounded-3xl overflow-hidden border border-zinc-200 dark:border-zinc-800 relative">
-          <span class="absolute top-2 right-2 bg-sky-500 text-white text-xs px-2 py-1 rounded-full">Concept Project</span>
-          <img alt="Concept Project - AI Comment Assistant" class="w-full h-40 object-cover" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop" />
-          <div class="p-5">
-            <h3 class="font-semibold">Concept Project: AI Comment Assistant</h3>
-            <p class="mt-2 text-sm text-zinc-600 dark:text-zinc-300">A conceptual Python script designed to automatically generate intelligent, context-aware responses to customer or social media messages using a local LLM model. Built to explore AI’s potential in customer engagement automation.</p>
-            <div class="mt-3 flex gap-3 text-xs">
-              <span class="px-2 py-1 rounded-full border">Python</span>
-              <span class="px-2 py-1 rounded-full border">LLM</span>
-              <span class="px-2 py-1 rounded-full border">Automation</span>
-            </div>
+<body>
+  <div class="site-shell">
+    <!-- Nav -->
+    <header class="top-nav">
+      <div class="top-nav-inner">
+        <div class="brand">
+          <div class="brand-avatar">
+            <div class="brand-avatar-inner">RV</div>
           </div>
-        </article>
-        <article class="rounded-3xl overflow-hidden border border-zinc-200 dark:border-zinc-800 relative">
-          <span class="absolute top-2 right-2 bg-sky-500 text-white text-xs px-2 py-1 rounded-full">Concept Project</span>
-          <img alt="Concept Project - Customer Support Dashboard" class="w-full h-40 object-cover" src="https://images.unsplash.com/photo-1454165205744-3b78555e5572?q=80&w=1200&auto=format&fit=crop" />
-          <div class="p-5">
-            <h3 class="font-semibold">Concept Project: Customer Support Dashboard</h3>
-            <p class="mt-2 text-sm text-zinc-600 dark:text-zinc-300">A prototype dashboard designed with Airtable and Excel for visualizing customer inquiries, SLA performance, and escalation trends. Demonstrates how data insights can drive faster resolution and improved customer experience.</p>
-            <div class="mt-3 flex gap-3 text-xs">
-              <span class="px-2 py-1 rounded-full border">Excel</span>
-              <span class="px-2 py-1 rounded-full border">Airtable</span>
-              <span class="px-2 py-1 rounded-full border">Analytics</span>
-            </div>
+          <div class="brand-text">
+            <span class="brand-title">RV · Portfolio</span>
+            <span class="brand-subtitle">Customer Experience · Salesforce · AI</span>
           </div>
-        </article>
-        <article class="rounded-3xl overflow-hidden border border-zinc-200 dark:border-zinc-800">
-          <img alt="Nemching Chatbot banner" class="w-full h-40 object-cover" src="./Chatbot.png" />
-          <div class="p-5">
-            <h3 class="font-semibold">NEMCHING CHATBOT · AI Web App</h3>
-            <p class="mt-2 text-sm text-zinc-600 dark:text-zinc-300">Full-stack chatbot using Meta Llama 4 Scout (17B) via HuggingFace Inference Providers. Implements resilient retry logic (99% uptime), maintains session history, and features a responsive, mobile-first UI.</p>
-            <div class="mt-3 flex flex-wrap gap-2 text-xs">
-              <span class="px-2 py-1 rounded-full border">Python</span>
-              <span class="px-2 py-1 rounded-full border">Flask</span>
-              <span class="px-2 py-1 rounded-full border">HuggingFace API</span>
-              <span class="px-2 py-1 rounded-full border">JavaScript</span>
-              <span class="px-2 py-1 rounded-full border">HTML/CSS</span>
-              <span class="px-2 py-1 rounded-full border">CI/CD</span>
-              <span class="px-2 py-1 rounded-full border">Render</span>
-            </div>
-            <div class="mt-4 flex gap-3">
-              <a href="https://nemching-chatbot.onrender.com" target="_blank" class="inline-block px-3 py-2 rounded-xl border">Live Demo</a>
-              <a href="https://github.com/wealthyr7-cyber/nemching-chatbot" target="_blank" class="inline-block px-3 py-2 rounded-xl border">GitHub</a>
-            </div>
-          </div>
-        </article>
-      </div>
-      <div class="mt-10">
-        <a href="#salesforce" class="inline-block px-4 py-2 rounded-xl border">See Salesforce Case Study →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- SALESFORCE CASE STUDY -->
-  <section id="salesforce" class="py-16 md:py-24">
-    <div class="max-w-5xl mx-auto px-4">
-      <h2 class="text-2xl md:text-3xl font-bold">Salesforce Case Study — Interview Tracker System</h2>
-      <p class="mt-2 text-zinc-600 dark:text-zinc-300">A comprehensive Salesforce app for managing job applications, interview rounds, structured feedback, and follow‑up tasks. Built in Salesforce Developer Edition as part of an 11‑week Admin program.</p>
-      <div class="mt-6 grid md:grid-cols-2 gap-6">
-        <div class="p-5 rounded-2xl border border-zinc-200 dark:border-zinc-800">
-          <h3 class="font-semibold">Business Problem</h3>
-          <p class="mt-2 text-sm text-zinc-600 dark:text-zinc-300">Job seekers need a single source of truth to track multiple applications, each with multiple interview rounds, capture structured feedback, and manage action items without losing context.</p>
         </div>
-        <div class="p-5 rounded-2xl border border-zinc-200 dark:border-zinc-800">
-          <h3 class="font-semibold">Solution Approach</h3>
-          <p class="mt-2 text-sm text-zinc-600 dark:text-zinc-300">Four‑object data model with strategic relationship types: Master‑Detail for dependent lifecycles and Lookup for independent workflows. Emphasis on data integrity and flexibility.</p>
-        </div>
+        <nav class="nav-links">
+          <a href="#about">About</a>
+          <a href="#experience">Experience</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#salesforce">Salesforce</a>
+          <a href="#architecture">Architecture</a>
+          <a href="#contact" class="primary-link">Contact</a>
+        </nav>
       </div>
-      <div class="mt-8 p-5 rounded-2xl border border-zinc-200 dark:border-zinc-800">
-        <h3 class="font-semibold">Technical Implementation</h3>
-        <pre class="mt-3 text-xs overflow-auto p-3 rounded-xl bg-zinc-50 dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-800">Data Architecture:
+    </header>
+
+    <main class="layout">
+      <!-- Left: profile card -->
+      <aside class="profile-card reveal" id="top">
+        <div class="profile-card-header">
+          <div class="profile-photo-frame">
+            <div class="profile-photo">RV</div>
+          </div>
+          <div class="profile-main">
+            <div class="profile-name">
+              <span>Robert Vualnam</span>
+            </div>
+            <div class="profile-username">@wealthyr7-cyber</div>
+            <div class="profile-title">
+              Customer Experience Specialist · Salesforce Admin Trainee · AI Workflow Enthusiast
+            </div>
+            <div class="profile-meta">
+              <span class="chip">
+                <span class="chip-dot"></span>
+                Bangalore, India
+              </span>
+              <span class="chip chip-open">
+                <span class="chip-dot"></span>
+                Open to Remote Roles
+              </span>
+              <span class="chip chip-tag">Customer Experience</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="profile-about">
+          With 5+ years in customer service and remote support, I focus on escalations, workflow optimization,
+          and small automations that reduce resolution times and improve CSAT. Currently building Salesforce and AI skills
+          to design better workflows for both customers and support teams.
+        </div>
+
+        <div class="profile-stats">
+          <div class="stat-pill">
+            <span class="stat-label">Experience</span>
+            <span class="stat-value">5+ years</span>
+          </div>
+          <div class="stat-pill">
+            <span class="stat-label">IELTS</span>
+            <span class="stat-value">8.0</span>
+          </div>
+          <div class="stat-pill">
+            <span class="stat-label">Focus</span>
+            <span class="stat-value">CX · Salesforce · AI</span>
+          </div>
+        </div>
+
+        <div class="profile-actions">
+          <a class="btn btn-primary" href="#contact">Contact Me</a>
+          <a class="btn btn-ghost" href="Resume_13Oct2025_Color.pdf" target="_blank" rel="noopener">Download Résumé</a>
+        </div>
+
+        <div class="profile-footer">
+          <div class="profile-footer-left">
+            GDPR & Compliance aware · Remote collaboration ready
+          </div>
+          <div class="profile-footer-right">
+            <a href="https://github.com/wealthyr7-cyber" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Right: sections -->
+      <section class="content-column">
+        <!-- About -->
+        <section id="about" class="section reveal">
+          <div class="section-header">
+            <h2 class="section-title">About Me</h2>
+            <span class="section-pill">Customer Experience · Remote Support</span>
+          </div>
+          <div class="section-body">
+            <p>
+              I’m a Customer Service Professional with 5+ years of experience in remote support for global clients.
+              I specialize in escalations, issue resolution, and workflow optimization using tools like Slack, Zoom,
+              and CRM systems. I enjoy building simple automations that improve customer satisfaction and
+              reduce resolution times.
+            </p>
+            <p>
+              Recently, I’ve been focused on <strong>Salesforce administration</strong> and <strong>AI-assisted workflows</strong>,
+              exploring how platform features and LLMs can work together to reduce manual effort and improve clarity
+              for both customers and agents.
+            </p>
+            <ul class="section-list">
+              <li>Based in Bangalore, India</li>
+              <li>IELTS 8.0 (Advanced English)</li>
+              <li>GDPR & compliance aware</li>
+              <li>Open to remote roles</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Experience -->
+        <section id="experience" class="section reveal">
+          <div class="section-header">
+            <h2 class="section-title">Experience</h2>
+            <span class="section-pill">Customer Support · Escalations</span>
+          </div>
+          <div class="section-body">
+            <article class="experience-item">
+              <div class="experience-item-header">
+                <div>
+                  <div class="experience-role">Salesforce Admin Trainee & CX Builder</div>
+                  <div class="experience-company">Self-directed · Salesforce Developer Edition</div>
+                </div>
+                <div class="experience-meta">2024 – Present</div>
+              </div>
+              <ul class="experience-bullets">
+                <li>Designing small but complete Salesforce apps (like an Interview Tracker) to practise data modeling and flows.</li>
+                <li>Focused on objects, relationships, validation rules, and reports that reflect real CX scenarios.</li>
+              </ul>
+            </article>
+
+            <article class="experience-item">
+              <div class="experience-item-header">
+                <div>
+                  <div class="experience-role">Remote Customer Support Specialist</div>
+                  <div class="experience-company">OJCommerce · Remote</div>
+                </div>
+                <div class="experience-meta">Jun 2021 – Oct 2021</div>
+              </div>
+              <ul class="experience-bullets">
+                <li>Resolved 90% of inquiries within 24 hours for 50+ U.S. clients.</li>
+                <li>Improved customer retention through proactive outreach on delayed or complex orders.</li>
+              </ul>
+            </article>
+
+            <article class="experience-item">
+              <div class="experience-item-header">
+                <div>
+                  <div class="experience-role">Customer Escalation Manager</div>
+                  <div class="experience-company">Aegis</div>
+                </div>
+                <div class="experience-meta">Mar 2017 – Oct 2019</div>
+              </div>
+              <ul class="experience-bullets">
+                <li>Managed 200+ monthly escalations, 98% resolved within SLA.</li>
+                <li>Worked with regulatory bodies (FCC, BBB) on sensitive complaints and churn risk cases.</li>
+              </ul>
+            </article>
+
+            <article class="experience-item">
+              <div class="experience-item-header">
+                <div>
+                  <div class="experience-role">Billing & Payment Specialist</div>
+                  <div class="experience-company">Convergys</div>
+                </div>
+                <div class="experience-meta">Nov 2012 – Jan 2014</div>
+              </div>
+              <ul class="experience-bullets">
+                <li>Supported car insurance customers on billing and payment issues.</li>
+                <li>Built small Excel workflows to speed up repetitive tasks and reduce handle time.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- Skills -->
+        <section id="skills" class="section reveal">
+          <div class="section-header">
+            <h2 class="section-title">Skills</h2>
+            <span class="section-pill">CX · Tools · Platforms</span>
+          </div>
+          <div class="section-body">
+            <div class="tag-row">
+              <span class="tag">Customer Experience Management</span>
+              <span class="tag">Escalation Handling</span>
+              <span class="tag">CRM (Zendesk, Salesforce)</span>
+              <span class="tag">Remote Collaboration (Slack, Zoom)</span>
+              <span class="tag">Excel · Airtable</span>
+              <span class="tag">Python Scripts</span>
+              <span class="tag">LLM & AI-assisted Workflows</span>
+              <span class="tag">GDPR & Compliance Awareness</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects" class="section reveal">
+          <div class="section-header">
+            <h2 class="section-title">Projects</h2>
+            <span class="section-pill">Concepts · AI · Platforms</span>
+          </div>
+          <div class="section-body">
+            <p>Selected projects and experiments where CX, Salesforce, and AI intersect.</p>
+
+            <div class="projects-grid">
+              <article class="project-card reveal">
+                <div class="project-badge">AI Web App · 2024</div>
+                <div class="project-title">NEMCHING Chatbot</div>
+                <p class="project-desc">
+                  Full-stack chatbot using Meta Llama 4 Scout (17B) via HuggingFace Inference Providers.
+                  Implements resilient retry logic (99% uptime), session history, and a responsive, mobile-first UI.
+                </p>
+                <div class="project-tags">
+                  <span class="project-tag">Python</span>
+                  <span class="project-tag">Flask</span>
+                  <span class="project-tag">HuggingFace API</span>
+                  <span class="project-tag">JS · HTML/CSS</span>
+                  <span class="project-tag">CI/CD · Render</span>
+                </div>
+                <div class="project-links">
+                  <a class="project-link" href="https://nemching-chatbot.onrender.com" target="_blank" rel="noopener">Live demo</a>
+                  <a class="project-link" href="https://github.com/wealthyr7-cyber" target="_blank" rel="noopener">GitHub</a>
+                </div>
+              </article>
+
+              <article class="project-card reveal">
+                <div class="project-badge">Salesforce Case Study · 2024</div>
+                <div class="project-title">Interview Tracker App</div>
+                <p class="project-desc">
+                  A Salesforce app to manage job applications, interview rounds, structured feedback, and follow-up tasks.
+                  Built in Developer Edition to practise data modeling, relationships, validation, and reporting for a
+                  realistic career workflow.
+                </p>
+                <div class="project-tags">
+                  <span class="project-tag">Salesforce</span>
+                  <span class="project-tag">Data Model</span>
+                  <span class="project-tag">Reports & Dashboards</span>
+                  <span class="project-tag">Admin Skills</span>
+                </div>
+              </article>
+
+              <article class="project-card reveal">
+                <div class="project-badge">Concept Project · 2023</div>
+                <div class="project-title">AI Comment Assistant</div>
+                <p class="project-desc">
+                  Conceptual assistant that generates context-aware replies for customer messages and reviews using a local
+                  LLM. Focused on tone control, safety, and reducing repetitive manual responses while keeping a human in the loop.
+                </p>
+                <div class="project-tags">
+                  <span class="project-tag">Python</span>
+                  <span class="project-tag">LLM</span>
+                  <span class="project-tag">Customer Support</span>
+                  <span class="project-tag">Automation</span>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- Salesforce Case Study + real images -->
+        <section id="salesforce" class="section reveal">
+          <div class="section-header">
+            <h2 class="section-title">Salesforce Case Study</h2>
+            <span class="section-pill">Interview Tracker System</span>
+          </div>
+          <div class="section-body">
+            <p>
+              A Salesforce app for managing job applications, interview rounds, structured feedback,
+              and follow-up tasks. Built in Salesforce Developer Edition as part of an Admin learning path.
+            </p>
+
+            <p><strong>Business Problem</strong></p>
+            <p>
+              Job seekers and hiring teams often lose track of multiple applications, interview stages,
+              and feedback spread across email and spreadsheets. There is no single view that ties status, notes,
+              and upcoming actions together.
+            </p>
+
+            <p><strong>Solution Approach</strong></p>
+            <p>
+              Designed a four-object data model that keeps applications, interviews, and feedback connected,
+              with master-detail relationships for lifecycle-dependent records and lookup relationships where
+              independence is needed (like follow-up tasks).
+            </p>
+
+            <p><strong>Technical Implementation</strong></p>
+            <div class="sf-schema">
+Data Architecture:
 ├─ Account (Standard) → Companies
-├─ Contact (Standard) → Recruiters/Hiring Managers
+├─ Contact (Standard) → Recruiters / Hiring Managers
 ├─ Job Application (Custom)
 │   ├─ Master-Detail → Interview (cascade delete)
 │   │   └─ Master-Detail → Interview Feedback
@@ -188,153 +1069,234 @@
 
 Objects Created: 3 custom objects
 Fields Created: 20+ custom fields
-Relationships: 2× Master‑Detail, 1× Lookup</pre>
-        <ul class="mt-3 list-disc ms-5 text-sm text-zinc-600 dark:text-zinc-300">
-          <li>Validation: Interview Date required when Status is “Scheduled/Completed”.</li>
-          <li>Features: Multi‑stage interview tracking, structured feedback with ratings, status workflow.</li>
-          <li>UI: Page layouts, tabs/apps, related lists for 360° view.</li>
-        </ul>
-      </div>
-      <div class="mt-8 p-5 rounded-2xl border border-zinc-200 dark:border-zinc-800">
-        <h3 class="font-semibold">Reports & Dashboard</h3>
-        <ul class="mt-2 list-disc ms-5 text-sm text-zinc-600 dark:text-zinc-300">
-          <li>Custom Report Types: Interviews; Interviews with Feedback; Job Applications with Interviews.</li>
-          <li>Reports: Interviews by Status; Upcoming Interviews (next 30 days); Feedback Summary.</li>
-          <li>Dashboard: Donut (status), metric (active apps), table (upcoming), bar (skill ratings).</li>
-        </ul>
-      </div>
-      <div class="mt-8">
-        <h3 class="text-lg font-semibold mb-3">📘 Schema Builder — Master‑Detail & Lookup Relationships</h3>
-        <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4" id="schemaGallery">
-          <figure class="rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800">
-            <img src="./Both%20Master-Details%20Lookup.png" alt="Schema builder showing master-detail and lookup relationships" class="w-full h-40 object-cover cursor-zoom-in lightbox-thumb"/>
-            <figcaption class="p-2 text-xs text-zinc-600 dark:text-zinc-300">Schema Builder — Master‑Detail & Lookup</figcaption>
-          </figure>
-          <figure class="rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800">
-            <img src="./Master-Detailed%20Relationship%20from%20Interview%20To%20Job%20Application.png" alt="Master‑Detail from Interview to Job Application" class="w-full h-40 object-cover cursor-zoom-in lightbox-thumb"/>
-            <figcaption class="p-2 text-xs text-zinc-600 dark:text-zinc-300">Master‑Detail: Interview → Job Application</figcaption>
-          </figure>
-          <figure class="rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800">
-            <img src="./Screenshot%202025-10-14%20234036.png" alt="Schema screenshot 234036" class="w-full h-40 object-cover cursor-zoom-in lightbox-thumb"/>
-            <figcaption class="p-2 text-xs text-zinc-600 dark:text-zinc-300">Schema Builder — Detail</figcaption>
-          </figure>
-          <figure class="rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800">
-            <img src="./Screenshot%202025-10-14%20234107.png" alt="Schema screenshot 234107" class="w-full h-40 object-cover cursor-zoom-in lightbox-thumb"/>
-            <figcaption class="p-2 text-xs text-zinc-600 dark:text-zinc-300">Schema Builder — Detail</figcaption>
-          </figure>
-          <figure class="rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800">
-            <img src="./Screenshot%202025-10-22%20003131.png" alt="Schema screenshot 003131" class="w-full h-40 object-cover cursor-zoom-in lightbox-thumb"/>
-            <figcaption class="p-2 text-xs text-zinc-600 dark:text-zinc-300">Schema Builder — Detail</figcaption>
-          </figure>
-          <figure class="rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800">
-            <img src="./Screenshot%202025-10-22%20003344.png" alt="Schema screenshot 003344" class="w-full h-40 object-cover cursor-zoom-in lightbox-thumb"/>
-            <figcaption class="p-2 text-xs text-zinc-600 dark:text-zinc-300">Schema Builder — Detail</figcaption>
-          </figure>
-          <figure class="rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800">
-            <img src="./Screenshot%202025-10-22%20003550.png" alt="Schema screenshot 003550" class="w-full h-40 object-cover cursor-zoom-in lightbox-thumb"/>
-            <figcaption class="p-2 text-xs text-zinc-600 dark:text-zinc-300">Schema Builder — Detail</figcaption>
-          </figure>
-          <figure class="rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800">
-            <img src="./Screenshot%202025-10-22%20003639.png" alt="Schema screenshot 003639" class="w-full h-40 object-cover cursor-zoom-in lightbox-thumb"/>
-            <figcaption class="p-2 text-xs text-zinc-600 dark:text-zinc-300">Schema Builder — Detail</figcaption>
-          </figure>
-          <figure class="rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800">
-            <img src="./Screenshot%202025-10-22%20003815.png" alt="Schema screenshot 003815" class="w-full h-40 object-cover cursor-zoom-in lightbox-thumb"/>
-            <figcaption class="p-2 text-xs text-zinc-600 dark:text-zinc-300">Schema Builder — Detail</figcaption>
-          </figure>
-        </div>
+Relationships: 2× Master-Detail, 1× Lookup
 
-        <h3 class="text-lg font-semibold mt-10 mb-3">📊 Dashboard — Interview Tracker Report</h3>
-        <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4" id="dashboardGallery">
-          <figure class="rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800">
-            <img src="./Interview%20Tracker.png" alt="Interview Tracker dashboard report" class="w-full h-40 object-cover cursor-zoom-in lightbox-thumb"/>
-            <figcaption class="p-2 text-xs text-zinc-600 dark:text-zinc-300">Dashboard — Interview Tracker</figcaption>
-          </figure>
-        </div>
-      </div>
+Validation:
+* Interview Date required when Status is “Scheduled/Completed”.
 
-      <!-- Lightbox overlay -->
-      <div id="lightbox" class="fixed inset-0 hidden items-center justify-center bg-black/80 p-4 z-[100] transition-opacity">
-        <button id="lbClose" aria-label="Close" class="absolute top-4 right-4 text-white text-2xl">✕</button>
-        <button id="lbPrev" aria-label="Previous" class="absolute left-4 top-1/2 -translate-y-1/2 text-white text-2xl">‹</button>
-        <button id="lbNext" aria-label="Next" class="absolute right-12 top-1/2 -translate-y-1/2 text-white text-2xl">›</button>
-        <figure class="max-w-5xl w-full">
-          <img id="lbImg" src="" alt="Preview" class="w-full max-h-[80vh] object-contain rounded-xl shadow-2xl"/>
-          <figcaption id="lbCap" class="mt-3 text-center text-zinc-200 text-sm"></figcaption>
-        </figure>
-      </div>
-      <div class="mt-8 flex flex-wrap gap-3">
-        <a href="https://www.salesforce.com/trailblazer/pzxesp0utoubnfpy3e" target="_blank" class="px-4 py-2 rounded-xl border">View Trailblazer Profile</a>
-        <a href="./Resume_13Oct2025_Color.pdf" download class="px-4 py-2 rounded-xl border">Download Résumé (PDF)</a>
-      </div>
-    </div>
-  </section>
+Features:
+* Multi-stage interview tracking
+* Structured feedback with ratings
+* Status workflow for applications and interviews
+            </div>
 
-  <!-- CONTACT -->
-  <section id="contact" class="py-16 md:py-24 bg-zinc-50 dark:bg-zinc-900/40">
-    <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-2xl md:text-3xl font-bold">Contact</h2>
-      <p class="mt-2 text-zinc-600 dark:text-zinc-300">For collaborations, remote roles, or freelance support work—drop a message.</p>
-      <div class="mt-6 grid md:grid-cols-3 gap-6">
-        <a href="mailto:robertvualnam23@gmail.com" class="p-6 rounded-2xl border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-900/50">📧 robertvualnam23@gmail.com</a>
-        <a href="tel:+918951679760" class="p-6 rounded-2xl border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-900/50">📱 +91 89516 79760</a>
-        <a href="https://github.com/wealthyr7-cyber" target="_blank" class="p-6 rounded-2xl border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-900/50">💻 github.com/wealthyr7-cyber</a>
-      </div>
-    </div>
-  </section>
+            <!-- Salesforce mockup images (files in same folder as index.html) -->
+            <div class="sf-media-grid">
+              <div class="sf-media-main">
+                <!-- MAIN DASHBOARD IMAGE -->
+                <div class="sf-thumb">
+                  <img src="Screenshot 2025-10-22 003131.png"
+                       alt="Salesforce dashboard showing active applications, upcoming interviews, and status breakdown." />
+                </div>
+                <div class="sf-caption">
+                  Salesforce dashboard showing active applications, upcoming interviews, and status breakdown.
+                  Uses <code>Screenshot 2025-10-22 003131.png</code>.
+                </div>
+              </div>
 
-  <!-- FOOTER -->
-  <footer class="py-10 border-t border-zinc-200 dark:border-zinc-800">
-    <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-zinc-500">
-      <p>© <span id="year"></span> Robert Vualnam. All rights reserved.</p>
-      <div class="flex items-center gap-4">
-        <a class="link-uline" href="#home">Back to top</a>
-      </div>
-    </div>
-  </footer>
+              <div class="sf-media-side-card">
+                <div class="sf-media-side-inner">
+                  <div>
+                    <!-- JOB APPLICATION RECORD IMAGE -->
+                    <div class="sf-thumb">
+                      <img src="Screenshot 2025-10-22 003344.png"
+                           alt="Job Application record with related list of interviews and feedback." />
+                    </div>
+                    <div class="sf-caption">
+                      Job Application record with related list of interviews and feedback.
+                      Uses <code>Screenshot 2025-10-22 003344.png</code>.
+                    </div>
+                  </div>
+
+                  <div>
+                    <!-- FEEDBACK / REPORT IMAGE -->
+                    <div class="sf-thumb">
+                      <img src="Screenshot 2025-10-22 003639.png"
+                           alt="Custom report or analytics view summarizing interviews and outcomes." />
+                    </div>
+                    <div class="sf-caption">
+                      Custom report or analytics view summarizing interviews and outcomes.
+                      Uses <code>Screenshot 2025-10-22 003639.png</code>.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <p style="margin-top:12px;"><strong>Reports & Dashboard</strong></p>
+            <ul class="section-list">
+              <li>Custom Report Types: Interviews; Interviews with Feedback; Job Applications with Interviews.</li>
+              <li>Reports: Interviews by Status; Upcoming Interviews (next 30 days); Feedback Summary by role.</li>
+              <li>Dashboard: Donut for status, metric for active applications, table for upcoming interviews, and bar for skill ratings.</li>
+            </ul>
+
+            <p>
+              <a class="project-link" href="https://trailblazer.me" target="_blank" rel="noopener">
+                View Trailblazer Profile (placeholder link)
+              </a>
+            </p>
+          </div>
+        </section>
+
+        <!-- Architecture / Data Model Deep Dive -->
+        <section id="architecture" class="section reveal">
+          <div class="section-header">
+            <h2 class="section-title">System Architecture</h2>
+            <span class="section-pill">Data Model · Relationships · UX</span>
+          </div>
+          <div class="section-body">
+            <p>
+              The Interview Tracker is designed around a simple goal: keep every interview connected to a
+              specific application and company, while making it easy to scan status and next actions
+              from a single interface.
+            </p>
+
+            <p><strong>High-Level Experience</strong></p>
+            <p>
+              The main app surface is a list of job applications, each with key fields like role, company,
+              location, current stage, and next interview date. From there, users can drill into related
+              records (interviews, feedback, tasks) without losing context.
+            </p>
+
+            <!-- UI + Data Model visual layout -->
+            <div class="sf-media-grid">
+              <!-- Left: UI Screenshot -->
+              <div class="sf-media-main">
+                <div class="sf-thumb">
+                  <img src="Interview Tracker.png"
+                       alt="Interview Tracker UI showing job applications and related interview information." />
+                </div>
+                <div class="sf-caption">
+                  Interview Tracker UI showing job applications and related interview information.
+                  File: <code>Interview Tracker.png</code>.
+                </div>
+              </div>
+
+              <!-- Right: Data Model diagrams -->
+              <div class="sf-media-side-card">
+                <div class="sf-media-side-inner">
+                  <div>
+                    <div class="sf-thumb">
+                      <img src="Both Master-Details Lookup.png"
+                           alt="Combined data model with both Master-Detail and Lookup relationships." />
+                    </div>
+                    <div class="sf-caption">
+                      Combined data model with both Master-Detail and Lookup relationships.
+                      Shows how Job Application, Interview, and Interview Feedback connect.
+                      File: <code>Both Master-Details Lookup.png</code>.
+                    </div>
+                  </div>
+
+                  <div>
+                    <div class="sf-thumb">
+                      <img src="Master-Detailed Relationship from Interview To Job Application.png"
+                           alt="Master-Detail relationship from Interview to Job Application diagram." />
+                    </div>
+                    <div class="sf-caption">
+                      Detailed view of the Master-Detail relationship from Interview to Job Application,
+                      illustrating dependency and cascade behaviour.
+                      File: <code>Master-Detailed Relationship from Interview To Job Application.png</code>.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <p style="margin-top: 12px;"><strong>Why this Architecture?</strong></p>
+            <ul class="section-list">
+              <li>
+                <strong>Master-Detail</strong> from <em>Interview</em> to <em>Job Application</em> ensures that
+                interviews cannot exist without an associated application and are cleaned up automatically when an
+                application is deleted.
+              </li>
+              <li>
+                <strong>Master-Detail</strong> from <em>Interview Feedback</em> to <em>Interview</em> keeps all feedback
+                tightly bound to a specific conversation and stage.
+              </li>
+              <li>
+                <strong>Lookup</strong> relationships are used when records need to live independently (for example,
+                generic follow-up tasks or cross-application summaries).
+              </li>
+            </ul>
+
+            <p>
+              Together, this structure keeps the org clean and easy to report on, while giving a clear drill-down
+              path from high-level pipeline views to individual interview outcomes.
+            </p>
+          </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="section reveal">
+          <div class="section-header">
+            <h2 class="section-title">Contact</h2>
+            <span class="section-pill">Remote Roles · Collaboration</span>
+          </div>
+          <div class="section-body contact-grid">
+            <div class="contact-details">
+              <p>
+                If you’re hiring for a remote CX/Salesforce role, or exploring how AI can support your support team,
+                I’d be happy to talk.
+              </p>
+              <p><strong>Email:</strong> robertvualnam23@gmail.com</p>
+              <p><strong>Phone:</strong> +91 89516 79760</p>
+              <p><strong>GitHub:</strong>
+                <a href="https://github.com/wealthyr7-cyber" target="_blank" rel="noopener">
+                  github.com/wealthyr7-cyber
+                </a>
+              </p>
+            </div>
+            <div class="contact-cta">
+              <a class="btn btn-primary" href="mailto:robertvualnam23@gmail.com?subject=Opportunity%20for%20Remote%20CX/Salesforce%20Role">
+                Email Me About an Opportunity
+              </a>
+              <a class="btn btn-ghost" href="#top">Back to top</a>
+              <small>
+                I prefer async communication, clear SLAs, and modern collaboration tools (Slack, Zoom, CRMs).
+              </small>
+            </div>
+          </div>
+        </section>
+
+        <footer class="site-footer">
+          <span>© Robert Vualnam. All rights reserved.</span>
+        </footer>
+      </section>
+    </main>
+  </div>
 
   <script>
-    // Year
-    document.getElementById('year').textContent = new Date().getFullYear();
+    // Scroll reveal
+    const revealEls = document.querySelectorAll('.reveal');
 
-    // Simple lightbox with fade effect
-    const thumbs = Array.from(document.querySelectorAll('.lightbox-thumb'));
-    const lightbox = document.getElementById('lightbox');
-    const lbImg = document.getElementById('lbImg');
-    const lbCap = document.getElementById('lbCap');
-    const lbClose = document.getElementById('lbClose');
-    const lbPrev = document.getElementById('lbPrev');
-    const lbNext = document.getElementById('lbNext');
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.15,
+        rootMargin: '0px 0px -40px 0px'
+      }
+    );
 
-    let current = -1;
+    revealEls.forEach(el => observer.observe(el));
 
-    function openAt(idx){
-      current = idx;
-      const img = thumbs[current];
-      lbImg.src = img.src;
-      const cap = img.closest('figure').querySelector('figcaption');
-      lbCap.textContent = cap ? cap.textContent : '';
-      lightbox.classList.remove('hidden');
-      lightbox.style.opacity = 0;
-      requestAnimationFrame(()=>{ lightbox.style.opacity = 1; });
-    }
-    function close(){
-      lightbox.style.opacity = 0;
-      setTimeout(()=>{ lightbox.classList.add('hidden'); lbImg.src=''; }, 150);
-    }
-    function next(){ openAt((current + 1) % thumbs.length); }
-    function prev(){ openAt((current - 1 + thumbs.length) % thumbs.length); }
-
-    thumbs.forEach((el, i)=> el.addEventListener('click', ()=> openAt(i)) );
-    lbClose.addEventListener('click', close);
-    lbNext.addEventListener('click', next);
-    lbPrev.addEventListener('click', prev);
-    lightbox.addEventListener('click', (e)=>{ if(e.target === lightbox) close(); });
-    document.addEventListener('keydown', (e)=>{
-      if(lightbox.classList.contains('hidden')) return;
-      if(e.key === 'Escape') close();
-      if(e.key === 'ArrowRight') next();
-      if(e.key === 'ArrowLeft') prev();
+    // Smooth scrolling for nav links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', (e) => {
+        const href = anchor.getAttribute('href');
+        if (!href || href === '#') return;
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
     });
   </script>
 </body>
